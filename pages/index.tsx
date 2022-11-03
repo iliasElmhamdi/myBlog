@@ -1,5 +1,4 @@
 import Layout from '../components/Layout'
-import Image from "next/image";
 
 
 class Day {
@@ -35,7 +34,7 @@ function Card({title, link, image, date}: ArticleProps) {
     return <div className={"card"}>
         <a href={link}
            target={"_blank"} rel="noreferrer">
-            <Image
+            <img
                 className="card-image"
                 alt={title}
                 src={image}/>
@@ -88,7 +87,7 @@ const IndexPage = () => {
             <main className={"main"}>
                 <section className={"me-section"}>
                     <div className={"flex-row"}>
-                        <Image className={"me"} src="/me.jpg" alt={"me"}></Image>
+                        <img className={"me"} src="/me.jpg" alt={"me"}></img>
                         <div>
                             <h1>👋 Hi, I&apos;m Ilias <span style={{whiteSpace: "nowrap"}}>El-Mhamdi</span></h1>
                             <p>This blog exists to organize my <a
