@@ -1,4 +1,5 @@
 import Layout from '../components/Layout'
+import Image from "next/image";
 
 
 class Day {
@@ -33,16 +34,18 @@ interface ArticleProps {
 function Card({title, link, image, date}: ArticleProps) {
     return <div className={"card"}>
         <a href={link}
-           target={"_blank"}>
-            <img
+           target={"_blank"} rel="noreferrer">
+            <Image
+                className="card-image"
                 alt={title}
                 src={image}/>
         </a>
         <a target={"_blank"}
+           rel="noreferrer"
            href={link}
            className={"card-title"}>{title}
         </a>
-    </div>;
+    </div>
 }
 
 const IndexPage = () => {
@@ -85,9 +88,9 @@ const IndexPage = () => {
             <main className={"main"}>
                 <section className={"me-section"}>
                     <div className={"flex-row"}>
-                        <img className={"me"} src="/me.jpg" alt={"me"}></img>
+                        <Image className={"me"} src="/me.jpg" alt={"me"}></Image>
                         <div>
-                            <h1>👋 Hi, I'm Ilias <span style={{whiteSpace: "nowrap"}}>El-Mhamdi</span></h1>
+                            <h1>👋 Hi, I&apos;m Ilias <span style={{whiteSpace: "nowrap"}}>El-Mhamdi</span></h1>
                             <p>This blog exists to organize my <a
                                 className={"linkedin-link"}
                                 href={"https://www.linkedin.com/today/author/ilias-el-mhamdi-72a013146?trk=pulse-article_more-articles"}>LinkedIn
@@ -100,7 +103,8 @@ const IndexPage = () => {
                     <h1>Tech Excellence</h1>
                     <div className={"article-container"}>
 
-                        {articles.map(article => <Card title={article.title} link={article.link} image={article.image}
+                        {articles.map(article => <Card key={article.title} title={article.title} link={article.link}
+                                                       image={article.image}
                                                        date={article.date}/>)
                         }
                     </div>

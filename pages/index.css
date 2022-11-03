@@ -39,7 +39,7 @@ body {
 
 }
 
-.card img {
+.card-image {
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
     height: 250px;
